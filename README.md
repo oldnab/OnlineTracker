@@ -2,6 +2,9 @@
 Ce projet a pour but permettre l'utilisation de la fonction de suivi online de OsmAnd. Il comprend donc deux fonctions :  
 1. un "enregistreur" **set.php** à configurer dans osmAnd pour enregistrer tous les points envoyés par OsmAnd
 2. un "visualisateur" **suivre.php** permettant aux tiers de suivre la position actuelle de l'utilisateur OsmAnd, avec visualisation sur OpenStreetMap de l'ensemble du trajet depuis le début de l'enregistrement.  
+# Licenses
+Projet opensource license MIT.
+Les icônes présentes dans le projet sont libres de droit et d'origine flaticon avec obligation de créditer les créateurs. La page  suivre.php respecte cette obligation. Toute copie de ces fichiers icônes doit respecter cette obligation de crédit.
 # mise en oeuvre
 ## installation
 Il faut disposer d'un serveur WEB sur lequel on dépose les fichoers du projet (deux php et quatre png). Ce serveur doit accepter le php et la création de fichiers dans le répertoire des php par ceux-ci (pour stocker les fichiers de suivi)
@@ -12,7 +15,8 @@ Dans les paramètres du profil, rubrique "Enregistrement d'itinéraire", sous-ru
 * mettre dans le paramètre "adresse WEB" :
 > *url_de_votre_site*/set.php?id=xxxxxx&cmd=add&lat={0}&lon={1}&tim={2}&alt={4}
 
-Plusieurs points à noter :
+Plusieurs points à noter :   
+
 * l'identité (id=xxxxx, par exemple le prénom de l'utilisateur) est ce qui permet de relier les données enregistrées avec la fonction de suivi. Vous pouvez avoir plusiurs téléphones avec OsmAnd, chacun paramétré avec un identifiant différent et cet identifiant permettra de suivre le OsmAnd que l'on veut.
 * l'identité ne peut être composée que des 52 caractères ASCII majuscules / minuscules plus les chiffre 0-9.
 * le fichier qui sera utilisé sur le serveur WEB dans le répertoire de set.php s'appellera AAAA-MM-JJ-xxxxx et donc sera journalier. Il n'y a donc pas besoin de modifier le paramétrage OsmAnd d'un jour à l'autre. En revanche, une marche le matin et une marche l'après-midi seront enregistrées l'une à la suite de l'autre (la pause entre les deux sera clairement visible sur le suivi). Si vous voulez éviter cette concaténation, deux solutions :

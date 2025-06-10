@@ -8,7 +8,7 @@
 
 $DirSuivi = './';
 
-// Vérifier que le répertoire de suivi existe
+// Vérifier que le répertoire de suivi existe (peut-être maj)
 if (!is_dir($DirSuivi)) {
     die('Répertoire de stockage des fichiers de suivi inexistant');
 }
