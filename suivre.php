@@ -197,6 +197,27 @@ if (!file_exists($FicSuivi)) {
         );
         markerActuel.addTo(map);
 
+// Géolocalisation
+        function localisationOK(e) {
+            const userLatLng = e.latlng;
+
+            // Marqueur de l'utilisateur
+            const userMarker = L.marker(userLatLng)
+                .addTo(map)
+                .bindPopup('Vous êtes ici');
+
+            // Ligne pointillée entre utilisateur et point de référence
+            const line = L.polyline([userLatLng, points[nbPoints - 1]], {
+                color: 'blue',
+                weight: 3,
+                opacity: 0.7,
+                dashArray: '10, 10'
+            }).addTo(map);
+        }
+
+        map.locate({ setView: false});
+        map.on('locationfound', localisationOK);
+
 // se mettre à l'écoute des clicks sur les boutons
         document.getElementById('gotoLastButton').addEventListener('click', () => {
             map.setView(points[nbPoints - 1], 18);
